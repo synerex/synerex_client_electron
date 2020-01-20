@@ -26,6 +26,7 @@
 		"postinstall": "electron-builder install-app-deps",
 		"lint": "xo",
 		"test": "npm run lint",
+		"dist-win" : "node build-win.js",
 		"start": "electron .",
 		"pack": "electron-builder --dir",
 		"dist": "electron-builder --macos --linux --windows",
@@ -38,6 +39,8 @@
 		"electron-unhandled": "^3.0.0",
 		"electron-updater": "^4.0.6",
 		"electron-util": "^0.13.0",
+		"electron-window-state": "^5.0.3",
+		"fs-extra": "^8.1.0",
 		"terminal.js": "^1.0.10",
 		"tree-kill": "^1.2.2"
 	},

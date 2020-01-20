@@ -28,7 +28,7 @@ const helpSubmenu = [
 	}),
 	openUrlMenuItem({
 		label: 'Source Code',
-		url: 'https://github.com/synerex/synerex_beta'
+		url: 'https://github.com/synerex/synerex_client_electron'
 	}),
 	{
 		label: 'Report an Issue…',
