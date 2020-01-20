@@ -12,7 +12,11 @@
 		"Electron"
 	],
 	"bin": "cli.js",
-	"author": "Nobuo Kawaguchi",
+	"author": {
+		"name": "Nobuo Kawaguchi",
+		"email": "kawaguti@synerex.net",
+		"url": "http://synerex.net"
+	},
 	"license": "Apache-2.0",
 	"bugs": {
 		"url": "https://github.com/synerex/synerex_client_electron/issues"
