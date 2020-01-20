@@ -135,7 +135,7 @@ const runNodeServ = () => {
 	const sxdir = config.get('SynerexDir');
 	let nodeName = sxdir+'\\nodeserv\\nodeserv.exe';
 	if (process.platform === 'darwin') {
-		nodeName = spath.join(sxdir,'/nodeserv/nodeserv');
+		nodeName = path.join(sxdir,'/nodeserv/nodeserv');
 	}
 
 	if (nodeServ === null) {
@@ -168,7 +168,7 @@ const runSynerexServ = () => {
 	const sxdir = config.get('SynerexDir');
 	let sxName = sxdir+'\\server\\synerex-server.exe';
 	if (process.platform === 'darwin') {
-		sxName = spath.join(sxdir,'/server/synerex-server');
+		sxName = path.join(sxdir,'/server/synerex-server');
 	}
 
 	if (sxServ === null) {
