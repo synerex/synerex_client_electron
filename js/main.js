@@ -26,15 +26,23 @@ ipc.on('started', function(){
     sxTerm.write("")
  //   cs.appendChild(sxTerm.html)
 
-    document.getElementById('nodeserv').onclick = function() {
+    document.getElementById('toggle_nodeserv').onclick = function(e) {
         // start NoderServer
-        ipc.send('start-nodeserv','')
+        if (e.currentTarget.checked == true){
+            ipc.send('start-nodeserv','')
+        }else{
+            ipc.send('stop-nodeserv','')
+        }
     }
-    
-    document.getElementById('sxserver').onclick = function() {
-        // start NoderServer
-        ipc.send('start-sxserver','')
+
+    document.getElementById('toggle_sxserv').onclick = function(e) {
+        if (e.currentTarget.checked == true){
+            ipc.send('start-sxserv','')
+        }else{
+            ipc.send('stop-sxserv','')
+        }
     }
+
 })
 
 

@@ -149,18 +149,6 @@ const runNodeServ = () => {
 			mainWindow.webContents.send('nodeserv', '')
 			mainWindow.webContents.send('nodelog', 'Cant open ' + nodeName)
 		}
-
-	} else { // already running.
-		var r = kill(nodeServ.pid, 'SIGKILL', function (err) {
-			console.log("Kill err", err)
-		})
-		//		const r = nodeServ.kill('SIGHUP'); // may killed!
-		console.log("Kill Result", r)
-		sleep(2000).then(() => {
-			nodeServ = spawn(nodeName)
-			mainWindow.webContents.send('nodeserv', '')
-			setNodeCallBack(nodeServ)
-		})
 	}
 }
 
@@ -181,17 +169,7 @@ const runSynerexServ = () => {
 			mainWindow.webContents.send('sxserv', '')
 			mainWindow.webContents.send('sxlog', 'Cant open ' + sxName)
 		}
-	} else {
-		var r = kill(sxServ.pid, 'SIGKILL', function (err) {
-			console.log("Kill err", err)
-		})
-		console.log("Kill Result", r)
-		sleep(2000).then(() => {
-			sxServ = spawn(sxName)
-			mainWindow.webContents.send('sxserv', '')
-			setCallBack(sxServ, 'sx', 'sxlog')
-		})
-	}
+	} 
 }
 
 
@@ -200,9 +178,45 @@ ipc.on('start-nodeserv', () => {
 	console.log("Start nodeserv from Browser");
 	runNodeServ()
 });
-ipc.on('start-sxserver', () => {
+
+ipc.on('stop-nodeserv', () => {
+	console.log("Stop nodeserv from Browser");
+	try{
+		mainWindow.webContents.send('nodelog', "Stopping nodeserv")
+	}catch{
+		
+	}
+	if (nodeServ ) {
+		var r = kill(nodeServ.pid, 'SIGTERM', function (err) {
+			console.log("Kill err", err)
+		})
+	}
+	try{
+		mainWindow.webContents.send('nodelog', '..Stopped')
+	}catch{
+		
+	}
+	nodeServ = null
+});
+
+ipc.on('start-sxserv', () => {
 	console.log("Start Synerex Server from Browser");
 	runSynerexServ()
+});
+
+ipc.on('stop-sxserv', () => {
+	try{
+		mainWindow.webContents.send('sxlog', "Stopping SxServer")
+	}catch{}
+	if (sxServ ) {
+		var r = kill(sxServ.pid, 'SIGKILL', function (err) {
+			console.log("Kill err", err)
+		})
+	}
+	try{
+		mainWindow.webContents.send('sxlog', "..Stopped")
+	}catch{}
+	sxServ = null
 });
 
 

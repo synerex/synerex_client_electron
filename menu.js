@@ -29,7 +29,21 @@ const helpSubmenu = [
 	openUrlMenuItem({
 		label: 'Source Code',
 		url: 'https://github.com/synerex/synerex_client_electron'
-	}),
+	}),	
+	{
+		label: 'Show Settings',
+		click() {
+			config.openInEditor();
+		}
+	},
+	{
+		label: 'Show App Data',
+		click() {
+			shell.openItem(app.getPath('userData'));
+		}
+	},
+
+
 	{
 		label: 'Report an Issue…',
 		click() {

@@ -9,10 +9,29 @@
 	</head>
 	<body>
 		<div class="container">
-				<button id="nodeserv" class="btn-square-little-rich">NodeServ</button><br />
-				<div class="terminaljs" id="nodeterm"></div>
-				<button id="sxserver" class="btn-square-little-rich">SxServer</button><br />
-				<div class="terminaljs" id="sxterm"></div>
+			<div class="toggle">
+				<label class="toggle_label">
+					<span class="toggle_in">
+						<input type="checkbox" class="toggle_input" id="toggle_nodeserv" checked="checked" />
+					<span class="toggle_content"></span>
+					<span class="toggle_circle"></span>
+				</span>
+				NodeServ
+				</label>
+			</div>
+			<div class="terminaljs" id="nodeterm"></div>
+	
+			<div class="toggle">
+				<label class="toggle_label">
+					<span class="toggle_in">
+						<input type="checkbox" class="toggle_input" id="toggle_sxserv" checked="checked" />
+					<span class="toggle_content"></span>
+					<span class="toggle_circle"></span>
+				</span>
+				SxServer
+				</label>
+			</div>
+			<div class="terminaljs" id="sxterm"></div>
 			<footer></footer>
 		</div>
 	</body>
