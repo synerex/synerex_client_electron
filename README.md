@@ -5,22 +5,23 @@ Synerex Client app using Electron
 
 
 ## Working environment.
-node 12.14.1
-electrion 7.1.9
+node 12.16.1
+electrion 8.2.0
+
+## Setup for binary directory
+
+From "Help" menu, you need to setup binary directory with "Show Setting"
 
 
-## for Windows, 
-You should put synerex ripository
- C:/dev2019/synerex_beta
 
-If you want to change the dir, please change in the source file.
+## development 
+
+### for Windows
 
 Development for windows installer, 
  npm run dist-win
 
-
-## for MacOS
-
+### for MacOS
 Development for MacOS dmg 
 
  npm run dist-mac
